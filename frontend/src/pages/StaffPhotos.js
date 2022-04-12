@@ -57,7 +57,7 @@ export const StaffPhotos = () => {
 
                             return (
                                 <div key={staff.attributes.staff_id} className="profileImages" >
-                                    <img style={{width: "100%"}} src={`http://localhost:1337${staff.attributes.Photo.data.attributes.url}`} alt={staff.attributes.email} />
+                                    <img style={{width: "100%"}} src={`${process.env.REACT_APP_BACKEND}:${process.env.REACT_APP_PORT}${staff.attributes.Photo.data.attributes.url}`} alt={staff.attributes.email} />
                                     <h2 style={{fontSize: "1.5rem"}}>{staff.attributes.name}</h2>
                                     <h3 style={{fontSize: "0.9rem"}}>{roles.map(role => {
                                         return roles.length > 1 ? <p>{role}</p> : <><p>{role}</p><p><br/></p></>
