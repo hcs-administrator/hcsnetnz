@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_accounts",
+  "info": {
+    "singularName": "service-account",
+    "pluralName": "service-accounts",
+    "displayName": "Admin_Service_Account",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "Reason": {
+      "type": "string"
+    },
+    "OU": {
+      "type": "string"
+    },
+    "managed_by": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::staff-detail.staff-detail",
+      "mappedBy": "service_account"
+    },
+    "Password": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leased_devices",
+  "info": {
+    "singularName": "leased-device",
+    "pluralName": "leased-devices",
+    "displayName": "Assets_Leased_Group",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Provider": {
+      "type": "string"
+    },
+    "LeaseStart": {
+      "type": "date"
+    },
+    "LeaseEnd": {
+      "type": "date"
+    },
+    "asset_registers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::asset-register.asset-register",
+      "mappedBy": "leased_devices"
+    }
+  }
+}

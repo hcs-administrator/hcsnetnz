@@ -10,11 +10,18 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@exfabrica/strapi-plugin-awesome-seo": "^1.0.0-beta.1.1",
+    "@notum-cz/strapi-plugin-content-versioning": "^0.4.1",
     "@strapi/plugin-graphql": "^4.1.7",
     "@strapi/plugin-i18n": "4.1.7",
     "@strapi/plugin-users-permissions": "4.1.7",
     "@strapi/strapi": "4.1.7",
-    "better-sqlite3": "7.4.6"
+    "better-sqlite3": "7.4.6",
+    "bigbluebutton-strapi": "^1.0.11",
+    "strapi-plugin-ezforms": "^0.0.7",
+    "strapi-plugin-notes": "^1.0.0",
+    "strapi-plugin-react-editorjs": "^2.0.0",
+    "strapi-plugin-wysiwsg-react-md-editor": "^4.1.2"
   },
   "author": {
     "name": "A Strapi developer"

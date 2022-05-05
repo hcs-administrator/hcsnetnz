@@ -4,7 +4,7 @@
   "info": {
     "singularName": "staff-detail",
     "pluralName": "staff-details",
-    "displayName": "StaffDetail",
+    "displayName": "School_Staff",
     "description": ""
   },
   "options": {
@@ -42,6 +42,33 @@
       "relation": "manyToMany",
       "target": "api::department.department",
       "mappedBy": "staff_details"
+    },
+    "asset_registers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::asset-register.asset-register",
+      "inversedBy": "staff_details"
+    },
+    "KAMAR_ID": {
+      "type": "string"
+    },
+    "Employee_ID": {
+      "type": "string"
+    },
+    "school_keys": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::school-key.school-key",
+      "mappedBy": "staff_detail"
+    },
+    "extension": {
+      "type": "string"
+    },
+    "service_account": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::service-account.service-account",
+      "inversedBy": "managed_by"
     }
   }
 }

@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "key_names",
+  "info": {
+    "singularName": "key-name",
+    "pluralName": "key-names",
+    "displayName": "Key_Name",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Quantity": {
+      "type": "integer"
+    },
+    "school_keys": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::school-key.school-key",
+      "mappedBy": "key_name"
+    }
+  }
+}

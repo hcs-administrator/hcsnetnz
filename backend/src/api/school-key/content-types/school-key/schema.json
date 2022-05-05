@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "school_keys",
+  "info": {
+    "singularName": "school-key",
+    "pluralName": "school-keys",
+    "displayName": "Key_Assignment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "DateReceived": {
+      "type": "date"
+    },
+    "DateReturned": {
+      "type": "date"
+    },
+    "SignedOut": {
+      "type": "enumeration",
+      "enum": [
+        "Unknown",
+        "Jane",
+        "Janice",
+        "Barbara",
+        "Lyna"
+      ]
+    },
+    "staff_detail": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::staff-detail.staff-detail",
+      "inversedBy": "school_keys"
+    },
+    "key_name": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::key-name.key-name",
+      "inversedBy": "school_keys"
+    },
+    "non_staff_detail": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::non-staff-detail.non-staff-detail",
+      "inversedBy": "school_keys"
+    }
+  }
+}

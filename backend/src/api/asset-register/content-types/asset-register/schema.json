@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "asset_registers",
+  "info": {
+    "singularName": "asset-register",
+    "pluralName": "asset-registers",
+    "displayName": "Asset_Register",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "DeviceName": {
+      "type": "string"
+    },
+    "SerialNumber": {
+      "type": "string"
+    },
+    "Location": {
+      "type": "string"
+    },
+    "DateAquired": {
+      "type": "date"
+    },
+    "leased_devices": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::leased-device.leased-device",
+      "inversedBy": "asset_registers"
+    },
+    "staff_details": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::staff-detail.staff-detail",
+      "mappedBy": "asset_registers"
+    },
+    "Supplier": {
+      "type": "string"
+    }
+  }
+}
