@@ -8,7 +8,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter } from 'react-router-dom';
 
 const client = new ApolloClient({
-  uri: `${process.env.REACT_APP_BACKEND}`,
+  uri: `${process.env.REACT_APP_BACKEND}/graphql`,
   cache: new InMemoryCache()
 })
 
