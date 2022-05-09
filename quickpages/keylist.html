@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key List</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif
+        }
+
+        h2 {
+            font-size: 0.9rem;
+        }
+
+        li {
+            font-size: 0.7rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Staff Key List</h1>
+    
+    <div id="app"></div>
+
+    <script>
+
+        const app = document.querySelector('#app')
+
+        const loadData = () => {
+            fetch('http://localhost:1337/graphql', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    query: `
+                        query {
+                            staffDetails(pagination: {limit:100}) {
+                                data {
+                                    attributes {
+                                        name
+                                        school_keys {
+                                            data {
+                                                attributes {
+                                                    key_name {
+                                                        data {
+                                                            attributes {
+                                                                Name
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    `
+                })
+            })
+            .then(res => res.json())
+            .then(data => { 
+
+                let staff_sorted = data.data.staffDetails.data.sort((a, b) => a.attributes.name > b.attributes.name)
+
+                return staff_sorted.map(detail => {
+
+                    const staff_keys = detail.attributes.school_keys.data.map(key => `<li>${key.attributes.key_name.data.attributes.Name}</li>`).join("")
+
+                    app.innerHTML += `
+                        <h2>${detail.attributes.name}</h2>
+                        <ul>${staff_keys}</ul>
+                    `
+                })
+
+            })
+        }
+
+        loadData()
+
+    </script>
+
+</body>
+</html>
